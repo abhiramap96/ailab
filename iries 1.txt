@@ -1,0 +1,11 @@
+import pandas as pd
+iris=pd.read_csv("/content/irisexcel.csv")
+x=iris[['sepal_length','sepal_width','petal_length','petal_width']]
+y=iris[['species']]
+from sklearn import svm
+ML=svm.SVC()
+ML=ML.fit(x,y)
+result=ML.predict([[3.7,4.9,5.2,3.3]])
+print("Result of Trial 1:",result)
+result=ML.predict([[3.4,3.9,5.5,5.3]])
+print("Result of Trial 2:",result)
