@@ -1,0 +1,16 @@
+import pandas as pd
+heart = pd.read_csv("/content/heart.csv")
+x = heart[["trtbps","restecg","slp"]]
+from sklearn.cluster import KMeans
+ML = KMeans(n_clusters=2,max_iter=4)
+ML = ML.fit(x)
+centers = ML.cluster_centers_
+labels = ML.labels_
+print(centers)
+print(labels)
+import matplotlib.pyplot as plt
+ax = plt.axes(projection='3d')
+xaxis = heart["trtbps"]
+yaxis = heart["restecg"]
+zaxis = heart["slp"]
+ax.scatter3D(xs=xaxis,ys=yaxis,zs=zaxis,c=labels,cmap="rainbow")
