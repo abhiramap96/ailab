@@ -1,0 +1,18 @@
+#1. Training
+#Load Data
+import pandas as pd
+iris=pd.read_csv("/content/winequality_white.csv")
+x=iris[['fixed acidity','volatile acidity','citric acid','residual sugar',
+        'chlorides','free sulfur dioxide','total sulfur dioxide','density','pH','sulphates','alcohol']]
+y=iris['quality']
+
+#Build Model
+from sklearn.svm import SVC
+ML=SVC()
+
+#Fit data into the model
+ML=ML.fit(x,y)
+
+#2. Testing
+op=ML.predict([[6.9,0.56,0.34,14.6,0.056,26,111,0.997,3.65,0.68,8.9]])
+print("Quality = ",op)

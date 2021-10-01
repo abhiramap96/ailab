@@ -1,0 +1,6 @@
+Trial 1 with features:- sepal_length=3.7, sepal_width=4.9, petal_length=5.2, petal_width=3.3 predicted species "virginica" 
+Trial 2 with features:- sepal_length=2.7, sepal_width=3.8, petal_length=4.8, petal_width=5.2 predicted species "virginica" 
+Here we can see in both trials the model classified the features into the species "virginica". A model always predicts the  
+class label of a testing data based on the training data. Here since the features we provided for testing is more similar 
+to "virginica" as trained, the ML model classified it so. In both cases, there is no big difference in features so it is 
+obvious to be in the same class.

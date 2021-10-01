@@ -1,0 +1,26 @@
+#1. Training
+#Load Data
+import pandas as pd
+heart=pd.read_csv("/content/heart.csv")
+x=heart[['trtbps','chol','thalachh','oldpeak']]
+y=heart['output']
+
+#Split data for crossvalidation
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,train_size=0.72,random_state=42)
+
+#Build Model
+from sklearn.svm import SVC
+ML=SVC()
+
+#Fit data into the model
+ML=ML.fit(x_train,y_train)
+
+#2. Testing
+op=ML.predict(x_test)
+print("SVM output = ",op)
+
+#Accuracy Measurement
+from sklearn.metrics import accuracy_score
+score=accuracy_score(op,y_test)
+print("Accuracy = ",score*100)
